@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D5EB8D03-13A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApi", "src\ContactsApi\ContactsApi.csproj", "{D48F155D-8665-4335-B4DA-3073AFEFF263}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsRazorPages", "src\ContactsRazorPages\ContactsRazorPages.csproj", "{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +34,21 @@ Global
 		{D48F155D-8665-4335-B4DA-3073AFEFF263}.Release|x64.Build.0 = Release|Any CPU
 		{D48F155D-8665-4335-B4DA-3073AFEFF263}.Release|x86.ActiveCfg = Release|Any CPU
 		{D48F155D-8665-4335-B4DA-3073AFEFF263}.Release|x86.Build.0 = Release|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Debug|x64.Build.0 = Debug|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Debug|x86.Build.0 = Debug|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Release|x64.ActiveCfg = Release|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Release|x64.Build.0 = Release|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Release|x86.ActiveCfg = Release|Any CPU
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D48F155D-8665-4335-B4DA-3073AFEFF263} = {D5EB8D03-13A6-4D71-A409-46475938A81E}
+		{F6EE2CB7-2B5B-4737-93BD-38E132BDB51D} = {D5EB8D03-13A6-4D71-A409-46475938A81E}
 	EndGlobalSection
 EndGlobal
