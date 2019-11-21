@@ -1,27 +1,17 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { contacts as Contacts } from "../apis/contactApi";
 
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html'
 })
 export class ContactListComponent {
-  public contacts: Contact[];
+  public contacts: Contacts.IContact[];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Contact[]>(baseUrl + 'contacts').subscribe(result => {
-      this.contacts = result;
-    }, error => console.error(error));
+  constructor(contactsClient : Contacts.ContactsClient) {
+    contactsClient.getContacts().subscribe(result => {
+        this.contacts = result;
+      },
+      error => console.error(error));
   }
-}
-
-interface Contact {
-  id: number;
-  name: string;
-  address: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  phone: string;
-  email: string;
 }

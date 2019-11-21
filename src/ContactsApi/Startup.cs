@@ -17,6 +17,8 @@ namespace ContactsApi
 
         public IConfiguration Configuration { get; }
 
+        private const string AllowAllCors = "AllowAll";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -24,6 +26,17 @@ namespace ContactsApi
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddOpenApiDocument(document => document.PostProcess = d => d.Info.Title = "Contacts API");
+
+            services.AddCors(options =>
+                             {
+                                 options.AddPolicy(AllowAllCors,
+                                                   builder =>
+                                                   {
+                                                       builder.AllowAnyHeader();
+                                                       builder.AllowAnyMethod();
+                                                       builder.AllowAnyOrigin();
+                                                   });
+                             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +46,8 @@ namespace ContactsApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(AllowAllCors);
 
             app.UseHttpsRedirection();
 

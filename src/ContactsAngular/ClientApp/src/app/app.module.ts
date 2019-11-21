@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ContactListComponent } from "./contacts/contact-list.component";
+import { contacts } from "./apis/contactApi";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ContactListComponent } from "./contacts/contact-list.component";
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
-    FormsModule,
+    FormsModule, 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contact-list', component: ContactListComponent },
@@ -31,7 +32,7 @@ import { ContactListComponent } from "./contacts/contact-list.component";
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [],
+  providers: [contacts.ContactsClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
