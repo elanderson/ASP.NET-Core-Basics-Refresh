@@ -1,0 +1,28 @@
+<h1 id="tableLabel">Contacts</h1>
+
+<p *ngIf="!contacts"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="contacts">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postal Code</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.address }}</td>
+      <td>{{ contact.city }}</td>
+      <td>{{ contact.state }}</td>
+      <td>{{ contact.postalCode }}</td>
+      <td>{{ contact.phone }}</td>
+      <td>{{ contact.email }}</td>
+    </tr>
+  </tbody>
+</table>
