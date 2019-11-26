@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-export class ContactData extends Component {
-    static displayName = ContactData.name;
+export class ContactList extends Component {
+    static displayName = ContactList.name;
 
     constructor(props) {
         super(props);
@@ -46,7 +46,7 @@ export class ContactData extends Component {
     render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : ContactData.renderContactsTable(this.state.contacts);
+            : ContactList.renderContactsTable(this.state.contacts);
 
         return (
             <div>
