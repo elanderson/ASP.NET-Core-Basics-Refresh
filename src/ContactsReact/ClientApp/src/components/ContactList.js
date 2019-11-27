@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ContactsClient } from './contactsApi';  
 
 export class ContactList extends Component {
     static displayName = ContactList.name;
@@ -57,8 +58,8 @@ export class ContactList extends Component {
     }
 
     async populateContactData() {
-        const response = await fetch('contacts');
-        const data = await response.json();
-        this.setState({ contacts: data, loading: false });
+        let client = new ContactsClient();
+        client.getContacts()
+              .then(data => this.setState({ contacts: data, loading: false }));
     }
 }
