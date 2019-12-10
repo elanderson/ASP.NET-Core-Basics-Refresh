@@ -1,4 +1,5 @@
 using ContactsApi.Data;
+using ContactsApi.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +48,8 @@ namespace ContactsApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseRequestResponseLogging();
+            
             app.UseCors(AllowAllCors);
 
             app.UseHttpsRedirection();
