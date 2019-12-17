@@ -1,0 +1,50 @@
+﻿@page "/contactlist"
+
+@using Apis
+@inject IContactsClient ContactClient
+
+<h1>Contact List</h1>
+
+@if (_contacts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table className='table table-striped' aria-labelledby="tabelLabel">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Postal Code</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in _contacts)
+            {
+                <tr>
+                    <td>@contact.Name</td>
+                    <td>@contact.Address</td>
+                    <td>@contact.City</td>
+                    <td>@contact.State</td>
+                    <td>@contact.PostalCode</td>
+                    <td>@contact.Phone</td>
+                    <td>@contact.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private ICollection<Contact> _contacts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _contacts = await ContactClient.GetContactsAsync();
+    }
+}
