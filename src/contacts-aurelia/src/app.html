@@ -1,3 +1,19 @@
 <template>
-  <h1>${message}</h1>
+  <require from="./styles.css"></require>
+  <require from="./contact-list"></require>
+
+  <nav class="navbar navbar-light bg-light fixed-top" role="navigation">
+    <a class="navbar-brand" href="#">
+      <i class="fa fa-user"></i>
+      <span>Contacts</span>
+    </a>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <contact-list class="col-md-4"></contact-list>
+      <router-view class="col-md-8"></router-view>
+    </div>
+  </div>
 </template>
+ 
