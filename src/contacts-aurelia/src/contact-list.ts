@@ -1,19 +1,19 @@
-import {WebAPI} from './web-api';
+import {ContactsClient, Contact} from './contactsApi';
 import {inject} from 'aurelia-framework';
 
-@inject(WebAPI)
+@inject(ContactsClient)
 export class ContactList {
-  contacts: any;
-  api: any;
+  contacts: Contact[];
+  api: ContactsClient;
   selectedId: any;
   
-  constructor(api) {
+  constructor(api: ContactsClient) {
     this.api = api;
     this.contacts = [];
   }
 
   created() {
-    this.api.getContactList().then(contacts => this.contacts = contacts);
+    this.api.getContacts().then(contacts => this.contacts = contacts);
   }
 
   select(contact) {

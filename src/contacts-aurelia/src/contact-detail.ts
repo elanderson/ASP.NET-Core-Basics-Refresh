@@ -1,12 +1,12 @@
 import {inject} from 'aurelia-framework';
-import {WebAPI} from './web-api';
+import {ContactsClient, Contact} from './contactsApi';
 import {areEqual} from './utility';
 
-@inject(WebAPI)
+@inject(ContactsClient)
 export class ContactDetail {
-  api: any;
+  api: ContactsClient;
   routeConfig: any;
-  contact: any;
+  contact: Contact;
   originalContact: any;
   
   constructor(api){
@@ -16,21 +16,21 @@ export class ContactDetail {
   activate(params, routeConfig) {
     this.routeConfig = routeConfig;
 
-    return this.api.getContactDetails(params.id).then(contact => {
+    return this.api.getContact(params.id).then(contact => {
       this.contact = contact;
-      this.routeConfig.navModel.setTitle(contact.firstName);
+      this.routeConfig.navModel.setTitle(contact.name);
       this.originalContact = JSON.parse(JSON.stringify(contact));
     });
   }
 
   get canSave() {
-    return this.contact.firstName && this.contact.lastName && !this.api.isRequesting;
+    return true;
   }
 
   save() {
-    this.api.saveContact(this.contact).then(contact => {
+    this.api.postContact(this.contact).then(contact => {
       this.contact = contact;
-      this.routeConfig.navModel.setTitle(contact.firstName);
+      this.routeConfig.navModel.setTitle(contact.name);
       this.originalContact = JSON.parse(JSON.stringify(contact));
     });
   }
